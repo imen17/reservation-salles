@@ -27,7 +27,7 @@ class BookingService {
   }
 
   public async getBookingsByRoomId(roomId: string, { bookingStart, bookingEnd }: { bookingEnd: Date; bookingStart: Date }) {
-    const bookings = await this.bookings.find({ bookingStart: { $gte: bookingStart, $lte: bookingEnd } });
+    const bookings = await this.bookings.find({ bookingStart: { $gte: bookingStart, $lte: bookingEnd }, roomId });
     return bookings;
   }
 }
